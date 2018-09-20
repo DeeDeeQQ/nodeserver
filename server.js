@@ -6,17 +6,6 @@ const port = process.env.PORT || 8000;
 app.get('/', (request, response) => response.send('Hello World'));
 
 
-app.use('/api', router);
-
-
-router.post('/register', (request, response) => {
-    response.json({message: 'Done'});
-});
-
-
-
-
-
 router.use((request, response, next) => {
     console.log('Server info: Request received');
 
@@ -29,6 +18,14 @@ router.use((request, response, next) => {
 
     next();
 });
+
+app.use('/api', router);
+
+
+router.post('/register', (request, response) => {
+    response.json({message: 'Done'});
+});
+
 
 app.listen(port, () => {
     console.log("App is running on port " + port);

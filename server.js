@@ -10,7 +10,7 @@ app.use('/api', router);
 
 
 router.post('/register', (request, response) => {
-    response.json({message: 'Hello, welcome to my server'});
+    response("Done");
 });
 
 

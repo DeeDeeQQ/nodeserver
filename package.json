@@ -2,9 +2,9 @@
   "name": "nodeserver",
   "version": "0.0.1",
   "description": "node server",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

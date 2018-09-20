@@ -28,6 +28,6 @@ app.all('*',function(req,res,next)
     next();
 });
 
-server.listen(port, () => {
+app.listen(port, () => {
     console.log("App is running on port " + port);
 });

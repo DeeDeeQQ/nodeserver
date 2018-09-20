@@ -3,19 +3,30 @@ const app = express();
 const router = express.Router();
 const port = 3000;
 
-// url: http://localhost:3000/
+
 app.get('/', (request, response) => response.send('Hello World'));
 
-// all routes prefixed with /api
+
 app.use('/api', router);
 
-// using router.get() to prefix our path
-// url: http://localhost:3000/api/
-app.post("/register", function (request, response) {
-    if(!request.body) return response.sendStatus(400);
-    console.log(request.body);
-  response.send("Success");
+
+router.post('/register', (request, response) => {
+    response.json({message: 'Hello, welcome to my server'});
 });
 
-// set the server to listen on port 3000
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
+app.all('*',function(req,res,next)
+{
+    if (!req.get('Origin')) return next();
+
+    res.set('Access-Control-Allow-Origin','http://myapp.com');
+    res.set('Access-Control-Allow-Methods','GET,POST');
+    res.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
+
+    if ('OPTIONS' == req.method) return res.send(200);
+
+    next();
+});

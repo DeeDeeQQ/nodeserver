@@ -1,8 +1,11 @@
 {
   "name": "nodeserver",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "node server",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/DeeDeeQQ/nodeserver.git"

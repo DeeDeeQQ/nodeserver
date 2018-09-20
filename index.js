@@ -14,6 +14,7 @@ router.post('/register', (request, response) => {
     response.json({message: 'Hello, welcome to my server'});
 });
 
+
 app.all('*',function(req,res,next)
 {
     if (!req.get('Origin')) return next();

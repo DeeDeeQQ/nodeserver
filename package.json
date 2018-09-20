@@ -1,0 +1,22 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "node server",
+  "main": "index.js",
+  "scripts": {
+    "test": "api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DeeDeeQQ/nodeserver.git"
+  },
+  "author": "DeeDee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeeDeeQQ/nodeserver/issues"
+  },
+  "homepage": "https://github.com/DeeDeeQQ/nodeserver#readme",
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
+}

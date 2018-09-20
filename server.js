@@ -10,7 +10,7 @@ app.use('/api', router);
 
 
 router.post('/register', (request, response) => {
-    response("Done");
+    response.json({message: 'Registered'});
 });
 
 

@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "node server",
   "main": "index.js",
-  "scripts": {
-    "test": "api"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/DeeDeeQQ/nodeserver.git"

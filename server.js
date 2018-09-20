@@ -14,7 +14,7 @@ router.post('/register', (request, response) => {
 });
 
 
-const originWhitelist = ['http://localhost:3000', 'https://exchange-52741.firebaseapp.com/'];
+const originWhitelist = ['http://localhost:3000', 'https://exchange-52741.firebaseapp.com'];
 
 
 router.use((request, response, next) => {

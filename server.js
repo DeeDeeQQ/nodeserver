@@ -29,7 +29,7 @@ router.use((request, response, next) => {
 
 
     response.setHeader('Access-Control-Allow-Methods', 'GET');
-    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     response.setHeader('Access-Control-Allow-Credentials', true);
 
 

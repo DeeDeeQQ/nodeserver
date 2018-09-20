@@ -14,15 +14,24 @@ router.post('/register', (request, response) => {
 });
 
 
-app.all('*',function(request,res,next)
-{
-    if (!request.get('Origin')) return next();
+const originWhitelist = ['http://localhost:3000', 'https://example.net'];
 
-    response.set('Access-Control-Allow-Origin','https://nodeserverapis.herokuapp.com/');
-    response.set('Access-Control-Allow-Methods','GET,POST');
-    response.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
 
-    if ('OPTIONS' == request.method) return response.send(200);
+router.use((request, response, next) => {
+    console.log('Server info: Request received');
+
+    let origin = request.headers.origin;
+
+
+    if (originWhitelist.indexOf(origin) > -1) {
+        response.setHeader('Access-Control-Allow-Origin', origin);
+    }
+
+
+    response.setHeader('Access-Control-Allow-Methods', 'GET');
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    response.setHeader('Access-Control-Allow-Credentials', true);
+
 
     next();
 });

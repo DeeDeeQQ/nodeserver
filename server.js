@@ -3,10 +3,6 @@ const app = express();
 const router = express.Router();
 const port = process.env.PORT || 8000;
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
-}
-
 app.get('/', (request, response) => response.send('Hello World'));
 
 
@@ -18,15 +14,15 @@ router.post('/register', (request, response) => {
 });
 
 
-app.all('*',function(req,res,next)
+app.all('*',function(request,res,next)
 {
-    if (!req.get('Origin')) return next();
+    if (!request.get('Origin')) return next();
 
-    res.set('Access-Control-Allow-Origin','https://nodeserverapis.herokuapp.com/');
-    res.set('Access-Control-Allow-Methods','GET,POST');
-    res.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
+    response.set('Access-Control-Allow-Origin','https://nodeserverapis.herokuapp.com/');
+    response.set('Access-Control-Allow-Methods','GET,POST');
+    response.set('Access-Control-Allow-Headers','X-Requested-With,Content-Type');
 
-    if ('OPTIONS' == req.method) return res.send(200);
+    if ('OPTIONS' == request.method) return response.send(200);
 
     next();
 });

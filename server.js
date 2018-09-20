@@ -3,6 +3,9 @@ const app = express();
 const router = express.Router();
 const port = process.env.PORT || 8000;
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+}
 
 app.get('/', (request, response) => response.send('Hello World'));
 

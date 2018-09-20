@@ -15,7 +15,7 @@ router.post('/register', (request, response) => {
 });
 
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(process.env.PORT || 5000)
 
 
 app.all('*',function(req,res,next)

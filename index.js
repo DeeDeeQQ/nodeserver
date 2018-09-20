@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
-const port = 3000;
+const port = process.env.PORT || 8000;
 
 
 app.get('/', (request, response) => response.send('Hello World'));
@@ -14,10 +14,6 @@ router.post('/register', (request, response) => {
     response.json({message: 'Hello, welcome to my server'});
 });
 
-
-app.listen(process.env.PORT || 5000)
-
-
 app.all('*',function(req,res,next)
 {
     if (!req.get('Origin')) return next();
@@ -29,4 +25,8 @@ app.all('*',function(req,res,next)
     if ('OPTIONS' == req.method) return res.send(200);
 
     next();
+});
+
+server.listen(port, () => {
+    console.log("App is running on port " + port);
 });

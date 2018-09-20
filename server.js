@@ -10,24 +10,18 @@ app.use('/api', router);
 
 
 router.post('/register', (request, response) => {
-    response.json({message: 'Registered'});
+    response.json({message: 'Done'});
 });
 
 
-const originWhitelist = ['http://localhost:3000', 'https://exchange-52741.firebaseapp.com'];
+
 
 
 router.use((request, response, next) => {
     console.log('Server info: Request received');
 
-    let origin = request.headers.origin;
 
-
-    if (originWhitelist.indexOf(origin) > -1) {
-
-    }
-
-    response.setHeader('Access-Control-Allow-Origin', origin);
+    response.setHeader('Access-Control-Allow-Origin', "*");
     response.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
     response.setHeader('Access-Control-Allow-Credentials', true);

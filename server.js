@@ -24,10 +24,10 @@ router.use((request, response, next) => {
 
 
     if (originWhitelist.indexOf(origin) > -1) {
-        response.setHeader('Access-Control-Allow-Origin', origin);
+
     }
 
-
+    response.setHeader('Access-Control-Allow-Origin', origin);
     response.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
     response.setHeader('Access-Control-Allow-Credentials', true);
